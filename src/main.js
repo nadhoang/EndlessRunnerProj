@@ -1,3 +1,6 @@
+// Name: Nathan Hoang
+// Title: Push My Buttons
+// Time Spent: 3 hours
 "use strict"
 
 let config = {
