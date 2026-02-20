@@ -27,11 +27,11 @@ class Play extends Phaser.Scene {
         this.buttons = []
 
         // create a few buttons
-        const textures = { inactive: 'unactiveBtn', hover: 'activeBtn', active: 'activeBtn', pressed: 'pressedBtn' }
+        const textures = { inactive: 'pressedBtn', hover: 'activeBtn', active: 'activeBtn', pressed: 'pressedBtn' }
 
-        this.buttons.push(new Button(this, 200, 300, textures, { requiredClicks: 1, timeLimit: 1.5 }))
-        this.buttons.push(new Button(this, 400, 300, textures, { requiredClicks: 3, timeLimit: 2.0, baseScore: 25 })) // multi-click
-        this.buttons.push(new Button(this, 600, 300, textures, { requiredClicks: 1, timeLimit: 1.0, damage: 2, baseScore: 15 }))
+        this.buttons.push(new Button(this, 200, 300, textures, { requiredClicks: 1, timeLimit: 2.0 }))
+        this.buttons.push(new Button(this, 400, 300, textures, { requiredClicks: 1, timeLimit: 2.0, baseScore: 25 })) // multi-click
+        this.buttons.push(new Button(this, 600, 300, textures, { requiredClicks: 1, timeLimit: 2.0, damage: 1, baseScore: 15 }))
 
         // activate loop (spawns “active” buttons over time)
         this.time.addEvent({

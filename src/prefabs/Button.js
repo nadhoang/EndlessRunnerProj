@@ -83,7 +83,7 @@ class Button extends Phaser.GameObjects.Image {
         this.state = 'inactive'
         this.timeActive = 0
 
-        this.setTexture(this.texturesMap.inactive)
+        this.setTexture(this.texturesMap.pressed)
         this.setTint(0x444444)
 
         if (this.pulseTween) {
