@@ -1,0 +1,125 @@
+{
+	"textures": [
+		{
+			"image": "girl.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 750,
+				"h": 240
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "girlangrytalk.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 150,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					}
+				},
+				{
+					"filename": "girlblink.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 150,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					},
+					"frame": {
+						"x": 150,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					}
+				},
+				{
+					"filename": "girlhurt.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 150,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					},
+					"frame": {
+						"x": 300,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					}
+				},
+				{
+					"filename": "girlneutral.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 150,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					},
+					"frame": {
+						"x": 450,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					}
+				},
+				{
+					"filename": "girlneutraltalk.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 150,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					},
+					"frame": {
+						"x": 600,
+						"y": 0,
+						"w": 150,
+						"h": 240
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:2123442fa2ba136ba18bfcad23926412:2bcfc95817407c96cd93d582a1fe6bc9:165fda0d1be138e47f78fe530c9a9f92$"
+	}
+}

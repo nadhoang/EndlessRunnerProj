@@ -15,6 +15,7 @@ class Button extends Phaser.GameObjects.Image {
         this.pulseTween = null
 
         this.timeLimit = opts.timeLimit ?? 1.5      // seconds before damage
+        this.baseTimeLimit = this.timeLimit
         this.damage = opts.damage ?? 1
         this.baseScore = opts.baseScore ?? 10
 
@@ -71,6 +72,8 @@ class Button extends Phaser.GameObjects.Image {
 
         this.setTexture(this.texturesMap.active)
         this.clearTint()
+        let randomPitch = Phaser.Math.FloatBetween(0.95, 1.25)
+        this.scene.sound?.play?.('hover', { rate: randomPitch })
 
         // Enable interaction ONLY when active
         this.setInteractive(
@@ -100,7 +103,8 @@ class Button extends Phaser.GameObjects.Image {
 
     handleClick() {
         // click sound
-        this.scene.sound?.play?.('click', { rate: 1.0 })
+        let randomPitch = Phaser.Math.FloatBetween(0.95, 1.25)
+        this.scene.sound?.play?.('click', { rate: randomPitch })
 
         this.clicksRemaining -= 1
 
@@ -109,8 +113,27 @@ class Button extends Phaser.GameObjects.Image {
 
         if (this.clicksRemaining <= 0) {
             // scoring hook
-            this.scene.addScore(this.baseScore)
+            const mult = this.scene.getScoreMultiplier()
+            const finalScore = Math.round(this.baseScore * mult)
+            this.scene.addScore(finalScore)
             this.deactivate()
+
+            if (mult > 1.05) {
+                const bonusText = this.scene.add.text(
+                    this.x, this.y - 30,
+                    `+${finalScore}`,
+                    { fontSize: '20px', color: '#ffff66', fontStyle: 'bold' }
+                ).setOrigin(0.5)
+
+                this.scene.tweens.add({
+                    targets: bonusText,
+                    y: bonusText.y - 30,
+                    alpha: 0,
+                    duration: 600,
+                    onComplete: () => bonusText.destroy()
+                })
+            }
+
         } else {
             // still active, return to active texture quickly
             this.scene.time.delayedCall(60, () => {
@@ -154,5 +177,12 @@ class Button extends Phaser.GameObjects.Image {
             this.scene.takeDamage(this.damage)
             this.deactivate()
         }
+    }
+
+    setTimeLimitScaled(mult) {
+    // mult > 1 = easier (more time), mult < 1 = harder (less time)
+    const minTL = 0.35
+    const maxTL = 10.0
+    this.timeLimit = Phaser.Math.Clamp(this.baseTimeLimit * mult, minTL, maxTL)
     }
 }
